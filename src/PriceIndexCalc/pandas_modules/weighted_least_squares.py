@@ -66,10 +66,11 @@ def wls_numpy(
     """
     # Obtain variables and weight for wls regression.
     X, Y, weights = _get_vars(df, dependent_var, independent_vars)
-    W = np.array(weights)
+    W = np.array(weights).astype(float)
 
     # Matrix WLS to fit model.
     coeffs = np.linalg.pinv(X.T @ (W[:, None] * X)) @ (X.T @ (W * Y))    
+    coeffs = coeffs.astype(float)
     
     return pd.Series(coeffs, index=X.columns)
 
