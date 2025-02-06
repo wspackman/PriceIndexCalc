@@ -1,9 +1,8 @@
-from gettext import find
 from setuptools import setup, find_packages
 
 setup(
     name='PriceIndexCalc',
-    version='0.7',
+    version='0.7.0',
     description='Price Index Calculator using bilateral and multilateral methods',
     url='https://github.com/wspackman/PriceIndexCalc',
     license='MIT',
@@ -19,4 +18,9 @@ setup(
         'pyspark'
         ],
     include_package_data=True,
+    classifiers = [
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ]
 )
