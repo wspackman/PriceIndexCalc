@@ -1,13 +1,14 @@
-from gettext import find
 from setuptools import setup, find_packages
+import re
+
+with open('src/PriceIndexCalc/version.py') as version_file:
+    __version__, = re.findall('__version__ = "(.*)"', version_file.read())
 
 setup(
-    name='PriceIndexCalc',
-    version='0.7',
+    name='PriceIndexCalc2',
+    version=__version__,
     description='Price Index Calculator using bilateral and multilateral methods',
-    author='Dr. Usman Kayani',
-    url='https://github.com/drrobotk/PriceIndexCalc',
-    author_email='usman.kayaniphd@gmail.com',
+    url='https://github.com/wspackman/PriceIndexCalc',
     license='MIT',
     packages=find_packages(where="src"),
     package_dir={'': 'src'},
@@ -21,4 +22,9 @@ setup(
         'pyspark'
         ],
     include_package_data=True,
+    classifiers = [
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ]
 )
